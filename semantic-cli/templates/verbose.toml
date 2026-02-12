@@ -1,0 +1,15 @@
+[commands]
+go-to = "cd"
+go-back = "cd .."
+list-files = "ls -la"
+delete-file = "rm -rf"
+copy-file = "cp -r"
+move-file = "mv"
+install-package = "sudo pacman -S"
+remove-package = "sudo pacman -R"
+update-system = "sudo pacman -Syu"
+
+[paths]
+"/user/applications" = "/usr/bin"
+"/configuration" = "/etc"
+"/system-logs" = "/var/log"

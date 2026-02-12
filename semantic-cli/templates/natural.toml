@@ -1,0 +1,15 @@
+[commands]
+goto = "cd"
+back = "cd .."
+list = "ls -la"
+delete = "rm -rf"
+copy = "cp -r"
+move = "mv"
+install = "sudo pacman -S"
+remove = "sudo pacman -R"
+update = "sudo pacman -Syu"
+
+[paths]
+"/apps" = "/usr/bin"
+"/settings" = "/etc"
+"/logs" = "/var/log"
