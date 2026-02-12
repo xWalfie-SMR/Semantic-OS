@@ -71,6 +71,16 @@ impl SemanticConfig {
         }
     }
 
+    /// Load config from ~/.config/semantic/config.toml.
+    /// Returns an error if the file doesn't exist or can't be parsed.
+    pub fn load() -> Result<Self, Box<dyn std::error::Error>> {
+        let config_path = Self::config_path();
+        let content = fs::read_to_string(&config_path)
+            .map_err(|e| format!("{}: {e}", config_path.display()))?;
+        let config: SemanticConfig = toml::from_str(&content)?;
+        Ok(config)
+    }
+
     /// Write the config to ~/.config/semantic/config.toml.
     /// Creates the directory if it doesn't exist.
     pub fn save(&self) -> Result<(), Box<dyn std::error::Error>> {
